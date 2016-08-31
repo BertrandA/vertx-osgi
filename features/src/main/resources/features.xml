@@ -4,21 +4,39 @@
           name="vert.x" >
 
     <feature name="vert.x" version="${vertx.version}" description="Vert.x runtime" start-level="50">
-        <bundle>mvn:io.netty/netty-codec/4.0.36.Final</bundle>
-        <bundle>mvn:io.netty/netty-common/4.0.36.Final</bundle>
-        <bundle>mvn:io.netty/netty-handler/4.0.36.Final</bundle>
-        <bundle>mvn:io.netty/netty-transport/4.0.36.Final</bundle>
-        <bundle>mvn:io.netty/netty-buffer/4.0.36.Final</bundle>
-        <bundle>mvn:io.netty/netty-codec-http/4.0.36.Final</bundle>
-        <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.7.3</bundle>
-        <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.7.3</bundle>
-        <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.7.3</bundle>
-        <bundle>mvn:io.vertx/vertx-core/3.3.0</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-codec/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-common/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-handler/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-handler-proxy/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-resolver/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-resolver-dns/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-transport/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-buffer/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-codec-dns/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-codec-socks/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-codec-http/${netty.version}</bundle>
+        <bundle start-level="50">mvn:io.netty/netty-codec-http2/${netty.version}</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
+        <bundle start-level="50">wrap:mvn:io.vertx/vertx-service-proxy/3.3.2</bundle>
+        <bundle>mvn:io.vertx/vertx-core/${vertx.version}</bundle>
     </feature>
 
     <feature name="vert.x-web" version="${vertx.version}" description="Vert.x web runtime" start-level="50">
-        <feature>vertx</feature>
+        <feature>vert.x</feature>
         <bundle>mvn:io.vertx/vertx-auth-common/${vertx.version}</bundle>
         <bundle>mvn:io.vertx/vertx-web/${vertx.version}</bundle>
+    </feature>
+
+    <feature name="vert.x-amqp" version="${vertx.version}" description="Vert.x amqp bridge" start-level="50">
+        <bundle start-level="50">mvn:org.apache.qpid/proton-j/0.13.1</bundle>
+        <bundle start-level="50">wrap:mvn:io.vertx/vertx-proton/3.3.2</bundle>
+        <bundle start-level="50">wrap:mvn:io.vertx/vertx-amqp-bridge/3.3.2</bundle>
+    </feature>
+
+    <feature name="vert.x-auth-jwt" version="${vertx.version}" description="Vert.x auth jwt" start-level="50">
+        <bundle>mvn:io.vertx/vertx-auth-common/${vertx.version}</bundle>
+        <bundle start-level="50">wrap:mvn:io.vertx/vertx-auth-jwt/3.3.2</bundle>
     </feature>
 </features>

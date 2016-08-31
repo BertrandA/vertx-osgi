@@ -6,12 +6,14 @@
 
     <groupId>org.bertranda.vertx</groupId>
     <artifactId>vertx-osgi</artifactId>
-    <version>3.2.1</version>
+    <version>3.3.2</version>
 
     <packaging>pom</packaging>
 
     <properties>
-        <vertx.version>3.2.1</vertx.version>
+        <vertx.version>3.3.2</vertx.version>
+        <netty.version>4.1.5.Final</netty.version>
+        <jackson.version>2.7.4</jackson.version>
         <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
         <doc.skip>true</doc.skip>
     </properties>
