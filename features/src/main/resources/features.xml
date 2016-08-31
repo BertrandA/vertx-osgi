@@ -1,0 +1,24 @@
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0"
+          name="vert.x" >
+
+    <feature name="vert.x" version="${vertx.version}" description="Vert.x runtime" start-level="50">
+        <bundle>mvn:io.netty/netty-codec/4.0.36.Final</bundle>
+        <bundle>mvn:io.netty/netty-common/4.0.36.Final</bundle>
+        <bundle>mvn:io.netty/netty-handler/4.0.36.Final</bundle>
+        <bundle>mvn:io.netty/netty-transport/4.0.36.Final</bundle>
+        <bundle>mvn:io.netty/netty-buffer/4.0.36.Final</bundle>
+        <bundle>mvn:io.netty/netty-codec-http/4.0.36.Final</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.7.3</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.7.3</bundle>
+        <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.7.3</bundle>
+        <bundle>mvn:io.vertx/vertx-core/3.3.0</bundle>
+    </feature>
+
+    <feature name="vert.x-web" version="${vertx.version}" description="Vert.x web runtime" start-level="50">
+        <feature>vertx</feature>
+        <bundle>mvn:io.vertx/vertx-auth-common/${vertx.version}</bundle>
+        <bundle>mvn:io.vertx/vertx-web/${vertx.version}</bundle>
+    </feature>
+</features>
