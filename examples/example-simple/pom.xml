@@ -6,13 +6,13 @@
 
     <parent>
         <groupId>org.bertranda.vertx</groupId>
-        <artifactId>vertx-osgi</artifactId>
+        <artifactId>examples</artifactId>
         <version>3.3.3-SNAPSHOT</version>
-        <relativePath>../</relativePath>
     </parent>
 
-    <artifactId>vertx-deployer</artifactId>
-    <name>Vert.x osgi deployer</name>
+    <groupId>org.bertranda.vertx</groupId>
+    <artifactId>example-simple</artifactId>
+    <version>3.3.3-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <build>
@@ -41,27 +41,9 @@
                 <configuration>
                     <instructions>
                         <Import-Package>
-                            io.vertx.core,
-                            io.vertx.core.buffer,
-                            io.vertx.core.eventbus,
-                            io.vertx.core.impl,
-                            io.vertx.core.json,
-                            io.vertx.core.logging,
-                            io.vertx.core.spi,
-                            io.vertx.core.spi.logging,
-                            org.osgi.framework,
-                            org.osgi.util.tracker,
-                            org.osgi.service.cm,
-                            org.slf4j,
-                            org.slf4j.spi,
-                            <!--java.util.logging,-->
-                            org.apache.logging.log4j,
-                            org.apache.logging.log4j.message,
-                            org.apache.log4j,
-                            org.apache.log4j.spi
+                            *
                         </Import-Package>
-                        <Private-Package>org.bertranda.vertx.deployer*</Private-Package>
-                        <Bundle-Activator>org.bertranda.vertx.deployer.VertxActivator</Bundle-Activator>
+                        <Private-Package>org.bertranda.vertx.examples.simple*</Private-Package>
                         <_dsannotations>*</_dsannotations>
                     </instructions>
                 </configuration>

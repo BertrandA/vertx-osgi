@@ -6,12 +6,12 @@
 
     <groupId>org.bertranda.vertx</groupId>
     <artifactId>vertx-osgi</artifactId>
-    <version>3.3.2_1</version>
+    <version>3.3.3-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
     <properties>
-        <vertx.version>3.3.2</vertx.version>
+        <vertx.version>3.3.3</vertx.version>
         <netty.version>4.1.5.Final</netty.version>
         <jackson.version>2.7.4</jackson.version>
         <asciidoc.dir>${project.basedir}/src/main/asciidoc</asciidoc.dir>
@@ -20,6 +20,8 @@
 
     <modules>
         <module>vertx-deployer</module>
+        <module>examples</module>
+        <!--<module>discovery-service-osgi</module>-->
         <module>features</module>
     </modules>
 
@@ -62,7 +64,18 @@
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
             <version>5.0.0</version>
-            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.enterprise</artifactId>
+            <version>5.0.0</version>
         </dependency>
     </dependencies>
 

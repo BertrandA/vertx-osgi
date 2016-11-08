@@ -15,15 +15,15 @@
 */
 package org.bertranda.vertx.deployer;
 
-import io.vertx.core.Verticle;
-import io.vertx.core.Vertx;
-import io.vertx.core.eventbus.EventBus;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceRegistration;
-import org.osgi.util.tracker.ServiceTracker;
+import org.osgi.framework.Constants;
+import org.osgi.service.cm.ManagedServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 /**
  * A bundle activator registering the Vert.x instance and the event bus as OSGi service.
@@ -32,37 +32,19 @@ public class VertxActivator implements BundleActivator {
 
     private final static Logger LOG = LoggerFactory.getLogger(VertxActivator.class);
 
-    private ServiceRegistration<Vertx> vertxRegistration;
-    private ServiceRegistration<EventBus> ebRegistration;
-    private ServiceTracker<Verticle, Verticle> tracker;
+    private static final String FACTORY_PID = "io.vertx";
 
     @Override
     public void start(BundleContext context) throws Exception {
-        LOG.info("Creating Vert.x instance");
-        Vertx vertx = Vertx.vertx();
-        vertxRegistration = context.registerService(Vertx.class, vertx, null);
-        LOG.info("Vert.x service registered");
-        ebRegistration = context.registerService(EventBus.class, vertx.eventBus(), null);
-        LOG.info("Vert.x Event Bus service registered");
+        Dictionary<String, String> props = new Hashtable<>();
+        props.put(Constants.SERVICE_PID, FACTORY_PID);
 
-        this.tracker = new ServiceTracker<>(context, Verticle.class.getName(), new VerticleTrackerCustomizer(context, vertx));
-        this.tracker.open();
+        VertxInstanceManager manager = new VertxInstanceManager(context);
+        context.registerService(ManagedServiceFactory.class, manager, props);
     }
 
     @Override
     public void stop(BundleContext context) throws Exception {
-        if (vertxRegistration != null) {
-            vertxRegistration.unregister();
-            vertxRegistration = null;
-        }
 
-        if (ebRegistration != null) {
-            ebRegistration.unregister();
-            ebRegistration = null;
-        }
-
-        if (this.tracker != null) {
-            this.tracker.close();
-        }
     }
 }
