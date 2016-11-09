@@ -38,4 +38,9 @@
         <bundle>mvn:io.vertx/vertx-auth-common/${vertx.version}</bundle>
         <bundle start-level="50">wrap:mvn:io.vertx/vertx-auth-jwt/${vertx.version}</bundle>
     </feature>
+
+    <feature name="vert.x-osgi" version="${project.version}" start-level="50">
+        <feature prerequisite="true">vert.x</feature>
+        <bundle>mvn:org.bertranda.vertx/vertx-deployer/${project.version}</bundle>
+    </feature>
 </features>
