@@ -30,7 +30,7 @@
 
     <feature name="vert.x-amqp" version="${vertx.version}" description="Vert.x amqp bridge" start-level="50">
         <bundle start-level="50">mvn:org.apache.qpid/proton-j/0.13.1</bundle>
-        <bundle start-level="50">wrap:mvn:io.vertx/vertx-proton/${vertx.version}/bundle>
+        <bundle start-level="50">wrap:mvn:io.vertx/vertx-proton/${vertx.version}</bundle>
         <bundle start-level="50">wrap:mvn:io.vertx/vertx-amqp-bridge/${vertx.version}</bundle>
     </feature>
 
