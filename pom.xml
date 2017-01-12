@@ -20,9 +20,8 @@
 
     <modules>
         <module>vertx-deployer</module>
+        <module>platforms</module>
         <module>examples</module>
-        <!--<module>discovery-service-osgi</module>-->
-        <module>features</module>
     </modules>
 
     <dependencyManagement>
