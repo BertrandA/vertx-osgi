@@ -42,7 +42,7 @@ public class VertxInstanceManager implements ManagedServiceFactory {
         }
 
         try {
-            VertxInstance instance = new VertxInstance(this.context, Properties.getValue(properties, "name"))
+            VertxInstance instance = new VertxInstance(this.context, Properties.getValue(properties, VertxInstance.VERTX_INSTANCE))
                 .configuration(Properties.getValue(properties, "conf"));
             instance.start();
             this.instances.put(pid, instance);
