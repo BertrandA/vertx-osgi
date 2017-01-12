@@ -6,11 +6,12 @@
     <parent>
         <groupId>org.bertranda.vertx</groupId>
         <artifactId>platforms</artifactId>
-        <version>3.3.3-SNAPSHOT</version>
+        <version>3.3.3</version>
+        <relativePath>../..</relativePath>
     </parent>
 
     <artifactId>platform-karaf</artifactId>
-    <version>3.3.3-SNAPSHOT</version>
+    <version>3.3.3</version>
     <packaging>bundle</packaging>
 
     <dependencies>

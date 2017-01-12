@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.bertranda.vertx</groupId>
         <artifactId>examples</artifactId>
-        <version>3.3.3-SNAPSHOT</version>
+        <version>3.3.3</version>
+        <relativePath>../..</relativePath>
     </parent>
 
-    <groupId>org.bertranda.vertx</groupId>
     <artifactId>example-simple</artifactId>
-    <version>3.3.3-SNAPSHOT</version>
+    <version>3.3.3</version>
     <packaging>bundle</packaging>
 
     <build>
