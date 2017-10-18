@@ -3,7 +3,7 @@
           xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0"
           name="vert.x" >
 
-    <feature name="vert.x" version="${vertx.version}" description="Vert.x runtime" start-level="50">
+    <feature name="netty-4" description="netty all" version="${netty.version}">
         <bundle start-level="50">mvn:io.netty/netty-codec/${netty.version}</bundle>
         <bundle start-level="50">mvn:io.netty/netty-common/${netty.version}</bundle>
         <bundle start-level="50">mvn:io.netty/netty-handler/${netty.version}</bundle>
@@ -16,6 +16,10 @@
         <bundle start-level="50">mvn:io.netty/netty-codec-socks/${netty.version}</bundle>
         <bundle start-level="50">mvn:io.netty/netty-codec-http/${netty.version}</bundle>
         <bundle start-level="50">mvn:io.netty/netty-codec-http2/${netty.version}</bundle>
+    </feature>
+
+    <feature name="vert.x" version="${vertx.version}" description="Vert.x runtime" start-level="50">
+        <feature>netty-4</feature>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-core/${jackson.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/${jackson.version}</bundle>
         <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/${jackson.version}</bundle>
@@ -29,7 +33,7 @@
     </feature>
 
     <feature name="vert.x-amqp" version="${vertx.version}" description="Vert.x amqp bridge" start-level="50">
-        <bundle start-level="50">mvn:org.apache.qpid/proton-j/0.13.1</bundle>
+        <bundle start-level="50">mvn:org.apache.qpid/proton-j/0.19.0</bundle>
         <bundle start-level="50">wrap:mvn:io.vertx/vertx-proton/${vertx.version}</bundle>
         <bundle start-level="50">wrap:mvn:io.vertx/vertx-amqp-bridge/${vertx.version}</bundle>
     </feature>
